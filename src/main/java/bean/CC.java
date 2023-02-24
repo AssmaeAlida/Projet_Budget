@@ -1,4 +1,5 @@
 package bean;
 
-public class CC {
+public class t {
+
 }
