@@ -1,5 +1,5 @@
 package bean;
 
-public class tt {
+public class ttt {
 
 }
