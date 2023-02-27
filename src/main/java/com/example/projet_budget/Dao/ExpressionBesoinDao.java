@@ -8,6 +8,6 @@ import java.util.Date;
 
 @Repository
 public interface ExpressionBesoinDao extends JpaRepository<ExpressionBesoin,Long> {
-    ExpressionBesoin findByDateExpressionAndTotal(Date dateExpression,double total);
-    int deleteByDateExpressionAndTotal(Date dateExpression,double total);
+    ExpressionBesoin findByCode(String code);
+    int deleteByCode(String code);
 }

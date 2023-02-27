@@ -12,16 +12,20 @@ import java.util.List;
 public class ExpressionBesoinProdWs {
     @Autowired
     private ExpressionBesoinProdService expressionBesoinProdService;
-    @GetMapping("/qte/{qte}/produit/code/{code}")
-    public ExpressionBesoinProd findByQteAndProduitCode(@PathVariable int qte,@PathVariable String code) {
-        return expressionBesoinProdService.findByQteAndProduitCode(qte, code);
+    @PostMapping("/")
+    public int save(@RequestBody ExpressionBesoinProd expressionBesoinProd) {
+        return expressionBesoinProdService.save(expressionBesoinProd);
     }
-   @DeleteMapping("/qte/{qte}/produit/code/{code}")
+     @GetMapping("/code/{code}/")
+    public ExpressionBesoinProd findByCode(@PathVariable String code) {
+        return expressionBesoinProdService.findByCode(code);
+    }
+    @DeleteMapping("/code/{code}/")
     @Transactional
-    public int deleteByQteAndProduitCode(@PathVariable int qte, @PathVariable String code) {
-        return expressionBesoinProdService.deleteByQteAndProduitCode(qte, code);
+    public int deleteByCode(@PathVariable String code) {
+        return expressionBesoinProdService.deleteByCode(code);
     }
-    @GetMapping("/")
+     @GetMapping("/")
     public List<ExpressionBesoinProd> findAll() {
         return expressionBesoinProdService.findAll();
     }

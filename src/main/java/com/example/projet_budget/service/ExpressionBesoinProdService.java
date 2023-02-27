@@ -15,12 +15,20 @@ public class ExpressionBesoinProdService {
     @Autowired
     private ExpressionBesoinProdDao expressionBesoinProdDao;
 
-    public ExpressionBesoinProd findByQteAndProduitCode(int qte, String code) {
-        return expressionBesoinProdDao.findByQteAndProduitCode(qte, code);
+    public int save(ExpressionBesoinProd expressionBesoinProd){
+        if (expressionBesoinProdDao.findByCode(expressionBesoinProd.getCode())!=null){
+            return -1;
+        }else {
+            expressionBesoinProdDao.save(expressionBesoinProd);
+            return 1;
+        }
+    }
+    public ExpressionBesoinProd findByCode(String code) {
+        return expressionBesoinProdDao.findByCode(code);
     }
     @Transactional
-    public int deleteByQteAndProduitCode(int qte, String code) {
-        return expressionBesoinProdDao.deleteByQteAndProduitCode(qte, code);
+    public int deleteByCode(String code) {
+        return expressionBesoinProdDao.deleteByCode(code);
     }
 
     public List<ExpressionBesoinProd> findAll() {
