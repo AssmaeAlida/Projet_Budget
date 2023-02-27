@@ -4,8 +4,10 @@ import com.example.projet_budget.Bean.ExpressionBesoin;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
+
 @Repository
 public interface ExpressionBesoinDao extends JpaRepository<ExpressionBesoin,Long> {
-    ExpressionBesoin findByExpressionBesoinId(Long id);
-    int deleteByExpressionBesoinId(Long id);
+    ExpressionBesoin findByDateExpressionAndTotal(Date dateExpression,double total);
+    int deleteByDateExpressionAndTotal(Date dateExpression,double total);
 }
