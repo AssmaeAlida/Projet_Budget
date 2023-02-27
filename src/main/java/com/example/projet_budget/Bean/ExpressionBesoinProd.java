@@ -12,6 +12,7 @@ public class ExpressionBesoinProd {
    @ManyToOne
     private Produit produit ;
     private int qte;
+    private String code;
     private int qteAccordee;
     private int qteDemandee;
     private int qteReception;
@@ -71,5 +72,13 @@ public class ExpressionBesoinProd {
 
     public void setQteLivraison(int qteLivraison) {
         this.qteLivraison = qteLivraison;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 }

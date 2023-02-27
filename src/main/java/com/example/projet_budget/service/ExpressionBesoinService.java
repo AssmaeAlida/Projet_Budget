@@ -17,15 +17,26 @@ public class ExpressionBesoinService {
     @Autowired
     private ExpressionBesoinDao expressionBesoinDao;
 
-    public ExpressionBesoin findByDateExpressionAndTotal(Date dateExpression, double total) {
-        return expressionBesoinDao.findByDateExpressionAndTotal(dateExpression, total);
+    public int save(ExpressionBesoin expressionBesoin){
+        if (expressionBesoinDao.findByCode(expressionBesoin.getCode())!=null){
+            return -1;
+        }else {
+            expressionBesoinDao.save(expressionBesoin);
+            return 1;
+        }
+    }
+
+    public ExpressionBesoin findByCode(String code) {
+        return expressionBesoinDao.findByCode(code);
     }
     @Transactional
-    public int deleteByDateExpressionAndTotal(Date dateExpression, double total) {
-        return expressionBesoinDao.deleteByDateExpressionAndTotal(dateExpression, total);
+    public int deleteByCode(String code) {
+        return expressionBesoinDao.deleteByCode(code);
     }
 
     public List<ExpressionBesoin> findAll() {
         return expressionBesoinDao.findAll();
     }
 }
+
+

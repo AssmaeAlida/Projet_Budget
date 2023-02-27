@@ -12,7 +12,9 @@ public class ExpressionBesoin {
     @ManyToOne
     private BudgetEntite budgetEntite;
     private double total;
+    private String code;
     private Date dateExpression;
+
 
     public Long getId() {
         return id;
@@ -44,5 +46,13 @@ public class ExpressionBesoin {
 
     public void setDateExpression(Date dateExpression) {
         this.dateExpression = dateExpression;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 }

@@ -13,14 +13,18 @@ import java.util.List;
 public class ExpressionBesoinWs {
     @Autowired
     private ExpressionBesoinService expressionBesoinService;
-     @GetMapping("/date/{date}/total/{total}")
-    public ExpressionBesoin findByDateExpressionAndTotal(@PathVariable Date dateExpression, @PathVariable double total) {
-        return expressionBesoinService.findByDateExpressionAndTotal(dateExpression, total);
+    @PostMapping("/")
+    public int save(@RequestBody ExpressionBesoin expressionBesoin) {
+        return expressionBesoinService.save(expressionBesoin);
     }
-    @DeleteMapping("/date/{date}/total/{total}")
+     @GetMapping("/code/{code}")
+    public ExpressionBesoin findByCode(@PathVariable String code) {
+        return expressionBesoinService.findByCode(code);
+    }
+    @DeleteMapping ("/code/{code}")
     @Transactional
-    public int deleteByDateExpressionAndTotal(@PathVariable Date dateExpression, @PathVariable double total) {
-        return expressionBesoinService.deleteByDateExpressionAndTotal(dateExpression, total);
+    public int deleteByCode(@PathVariable String code) {
+        return expressionBesoinService.deleteByCode(code);
     }
     @GetMapping("/")
     public List<ExpressionBesoin> findAll() {

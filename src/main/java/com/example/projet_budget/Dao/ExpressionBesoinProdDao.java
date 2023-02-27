@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ExpressionBesoinProdDao extends JpaRepository<ExpressionBesoinProd,Long> {
 
-    ExpressionBesoinProd findByQteAndProduitCode( int qte , String code);
-    int deleteByQteAndProduitCode (int qte , String code);
+    ExpressionBesoinProd findByCode( String code);
+    int deleteByCode (String code);
 }
