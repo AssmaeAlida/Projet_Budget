@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ExpressionBesoinDao extends JpaRepository<ExpressionBesoin,Long> {
-    ExpressionBesoin findByIdExpressionBesoin(Long id);
-    int deleteByIdExpressionBesoin(Long id);
+    ExpressionBesoin findByExpressionBesoinId(Long id);
+    int deleteByExpressionBesoinId(Long id);
 }
