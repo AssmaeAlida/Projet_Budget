@@ -6,5 +6,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface EntiteAdministratifDao extends JpaRepository<EntiteAdministratif, Long> {
+    EntiteAdministratif findByCode(String code);
+
+    int deleteByCode(String code);
 
 }

@@ -9,10 +9,29 @@ public class AppelAchat {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id ;
-    private Date DateAppelAchat;
+    private String ref;
+    private Date dateAppelAchat;
     private double totale;
     @ManyToOne
     private CategorieAppelAchat categorieAppelAchat;
+    @ManyToOne
+    private AppelAchatProd appelAchatProd;
+
+    public AppelAchatProd getAppelAchatProd() {
+        return appelAchatProd;
+    }
+
+    public void setAppelAchatProd(AppelAchatProd appelAchatProd) {
+        this.appelAchatProd = appelAchatProd;
+    }
+
+    public String getRef() {
+        return ref;
+    }
+
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
 
     public Long getId() {
         return id;
@@ -23,11 +42,11 @@ public class AppelAchat {
     }
 
     public Date getDateAppelAchat() {
-        return DateAppelAchat;
+        return dateAppelAchat;
     }
 
     public void setDateAppelAchat(Date dateAppelAchat) {
-        DateAppelAchat = dateAppelAchat;
+        dateAppelAchat = dateAppelAchat;
     }
 
     public double getTotale() {
