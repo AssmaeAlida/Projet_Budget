@@ -1,4 +1,4 @@
-package com.example.projet_budget.Ws;
+package com.example.projet_budget.ws;
 
 import com.example.projet_budget.Bean.CategorieEntiteAdministratif;
 import com.example.projet_budget.Service.CategorieEntiteAdministratifService;
@@ -22,7 +22,7 @@ public class CategorieEntiteAdministratifWs {
     public int deleteByCode(@PathVariable String code) {
         return categorieEntiteAdministratifService.deleteByCode(code);
     }
-    @GetMapping("categorieEntite/code/{code}")
+    @GetMapping("categorieEntiteAdministratif/code/{code}")
     public List<CategorieEntiteAdministratif> findByCategorieEntiteAdministratifCode(@PathVariable String code) {
         return categorieEntiteAdministratifService.findByCategorieEntiteCode(code);
     }
