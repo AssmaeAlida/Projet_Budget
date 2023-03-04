@@ -10,7 +10,7 @@ public class ExpressionBesoin {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id ;
     @ManyToOne
-    private BudgetEntite budgetEntite;
+    private BudgetEntiteAdministratif budgetEntite;
     private double total;
     private String code;
     private Date dateExpression;

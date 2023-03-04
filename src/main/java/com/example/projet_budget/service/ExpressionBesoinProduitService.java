@@ -1,7 +1,8 @@
 package com.example.projet_budget.service;
 
 
-import com.example.projet_budget.Dao.ExpressionBesoinProdDao;
+import com.example.projet_budget.Bean.ExpressionBesoinProduit;
+import com.example.projet_budget.Dao.ExpressionBesoinProduitDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,11 +10,11 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class ExpressionBesoinProdService {
+public class ExpressionBesoinProduitService {
     @Autowired
-    private ExpressionBesoinProdDao expressionBesoinProdDao;
+    private ExpressionBesoinProduitDao expressionBesoinProdDao;
 
-    public int save(ExpressionBesoinProd expressionBesoinProd){
+    public int save(ExpressionBesoinProduit expressionBesoinProd){
         if (expressionBesoinProdDao.findByCode(expressionBesoinProd.getCode())!=null){
             return -1;
         }else {
@@ -21,7 +22,7 @@ public class ExpressionBesoinProdService {
             return 1;
         }
     }
-    public ExpressionBesoinProd findByCode(String code) {
+    public ExpressionBesoinProduit findByCode(String code) {
         return expressionBesoinProdDao.findByCode(code);
     }
     @Transactional
@@ -29,7 +30,7 @@ public class ExpressionBesoinProdService {
         return expressionBesoinProdDao.deleteByCode(code);
     }
 
-    public List<ExpressionBesoinProd> findAll() {
+    public List<ExpressionBesoinProduit> findAll() {
         return expressionBesoinProdDao.findAll();
     }
 }

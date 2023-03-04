@@ -1,6 +1,6 @@
 package com.example.projet_budget.ws;
 
-import com.example.projet_budget.service.ExpressionBesoinProdService;
+import com.example.projet_budget.service.ExpressionBesoinProduitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +10,7 @@ import java.util.List;
 @RestController @RequestMapping("/api/v1/expressionBesoinProd")
 public class ExpressionBesoinProdWs {
     @Autowired
-    private ExpressionBesoinProdService expressionBesoinProdService;
+    private ExpressionBesoinProduitService expressionBesoinProdService;
     @PostMapping("/")
     public int save(@RequestBody ExpressionBesoinProd expressionBesoinProd) {
         return expressionBesoinProdService.save(expressionBesoinProd);
