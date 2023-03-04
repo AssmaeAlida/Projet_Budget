@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController @RequestMapping
+@RestController @RequestMapping("/api/v1/budgetEntiteAdministratif")
 public class BudgetEntiteAdministratifWs {
     @Autowired
     private com.example.projet_budget.service.BudgetEntiteAdministratifService budgetEntiteAdministratifService;

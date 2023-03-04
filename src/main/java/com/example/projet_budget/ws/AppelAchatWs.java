@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/appel-achat")
+@RequestMapping("api/v1/appel-achat")
 public class AppelAchatWs {
  @Autowired
     private AppelAchatService appelAchatService;

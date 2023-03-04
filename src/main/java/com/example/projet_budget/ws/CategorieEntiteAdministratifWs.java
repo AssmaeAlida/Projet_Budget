@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/categorie-entite")
+@RequestMapping("api/v1/categorie-entite")
 public class CategorieEntiteAdministratifWs {
     @Autowired
     private CategorieEntiteAdministratifService categorieEntiteAdministratifService;

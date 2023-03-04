@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/entite-administratif/")
+@RequestMapping("api/v1/entite-administratif/")
 public class EntiteAdministratifWs {
     @Autowired
    private EntiteAdministratifService entiteAdministratifService;

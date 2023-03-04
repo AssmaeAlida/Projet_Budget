@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/appel-achat-prod")
+@RequestMapping("api/v1/appel-achat-prod")
 public class AppelAchatProduitWs {
     @Autowired
     private AppelAchatProduitService appelAchatProduitService;
