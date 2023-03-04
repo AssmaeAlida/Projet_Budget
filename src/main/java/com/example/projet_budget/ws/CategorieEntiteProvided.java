@@ -1,6 +1,5 @@
 package com.example.projet_budget.Ws;
 
-import com.example.projet_budget.Bean.CategorieEntite;
 import com.example.projet_budget.Service.CategorieEntiteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;

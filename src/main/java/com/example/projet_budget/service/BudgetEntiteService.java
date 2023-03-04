@@ -1,11 +1,9 @@
 package com.example.projet_budget.service;
 
 import com.example.projet_budget.Bean.Budget;
-import com.example.projet_budget.Bean.BudgetEntite;
-import com.example.projet_budget.Dao.BudgetEntiteDao;
+import com.example.projet_budget.Dao.BudgetEntiteAdministratifDao;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,7 +11,7 @@ import java.util.List;
 @Service
 public class BudgetEntiteService {
    @Autowired
-    private BudgetEntiteDao budgetEntiteDao;
+    private BudgetEntiteAdministratifDao budgetEntiteDao;
    public int save(BudgetEntite budgetEntite){
        if (findBybudget(budgetEntite.getBudget()) != null) {
            return -1;

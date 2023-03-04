@@ -3,24 +3,20 @@ package com.example.projet_budget.Bean;
 import jakarta.persistence.*;
 
 @Entity
-public class AppelAchatProd {
+public class ExpressionBesoinProduit {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id ;
-    private String ref ;
-    @ManyToOne
-    private Produit produit;
-    private int qte;
-    private int qteReception;
-    private int qteLivraison;
-
-    public String getRef() {
-        return ref;
-    }
-
-    public void setRef(String ref) {
-        this.ref = ref;
-    }
+   @ManyToOne
+    private Produit produit ;
+   @ManyToOne
+    private ExpressionBesoin expressionBesoin ;
+    private double qte;
+    private String code;
+    private double qteAccordee;
+    private double qteDemandee;
+    private double qteReception;
+    private double qteLivraison;
 
     public Long getId() {
         return id;
@@ -46,6 +42,22 @@ public class AppelAchatProd {
         this.qte = qte;
     }
 
+    public int getQteAccordee() {
+        return qteAccordee;
+    }
+
+    public void setQteAccordee(int qteAccordee) {
+        this.qteAccordee = qteAccordee;
+    }
+
+    public int getQteDemandee() {
+        return qteDemandee;
+    }
+
+    public void setQteDemandee(int qteDemandee) {
+        this.qteDemandee = qteDemandee;
+    }
+
     public int getQteReception() {
         return qteReception;
     }
@@ -62,5 +74,11 @@ public class AppelAchatProd {
         this.qteLivraison = qteLivraison;
     }
 
+    public String getCode() {
+        return code;
+    }
 
+    public void setCode(String code) {
+        this.code = code;
+    }
 }

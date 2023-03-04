@@ -1,8 +1,5 @@
 package com.example.projet_budget.Service;
 
-import com.example.projet_budget.Bean.AppelAchat;
-import com.example.projet_budget.Bean.AppelAchatProd;
-import com.example.projet_budget.Dao.AppelAchatDao;
 import com.example.projet_budget.Dao.AppelAchatProdDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

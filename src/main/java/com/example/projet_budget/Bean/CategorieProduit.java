@@ -6,11 +6,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class CategorieEntite {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+public class CategorieProduit {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id ;
-    private String libelle ;
-    private String code ;
+    private String libelle;
+    private String code;
 
     public Long getId() {
         return id;
@@ -36,3 +37,4 @@ public class CategorieEntite {
         this.code = code;
     }
 }
+

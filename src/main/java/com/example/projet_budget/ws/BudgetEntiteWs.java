@@ -1,7 +1,6 @@
 package com.example.projet_budget.ws;
 
 import com.example.projet_budget.Bean.Budget;
-import com.example.projet_budget.Bean.BudgetEntite;
 import com.example.projet_budget.service.BudgetEntiteService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -15,14 +15,14 @@ public class AppelAchat {
     @ManyToOne
     private CategorieAppelAchat categorieAppelAchat;
     @ManyToOne
-    private AppelAchatProd appelAchatProd;
+    private AppelAchatProduit appelAchatProduit;
 
-    public AppelAchatProd getAppelAchatProd() {
+    public AppelAchatProduit getAppelAchatProd() {
         return appelAchatProd;
     }
 
-    public void setAppelAchatProd(AppelAchatProd appelAchatProd) {
-        this.appelAchatProd = appelAchatProd;
+    public void setAppelAchatProd(AppelAchatProduit appelAchatProd) {
+        this.appelAchatProduit = appelAchatProduit;
     }
 
     public String getRef() {

@@ -1,7 +1,6 @@
 package com.example.projet_budget.Service;
 
-import com.example.projet_budget.Bean.CategorieEntite;
-import com.example.projet_budget.Dao.CategorieEntiteDao;
+import com.example.projet_budget.Dao.CategorieEntiteAdministratifDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,7 +11,7 @@ import java.util.List;
 
 public class CategorieEntiteService {
     @Autowired
-    private CategorieEntiteDao categorieEntiteDao;
+    private CategorieEntiteAdministratifDao categorieEntiteDao;
 
     public CategorieEntite findByCode(String code) {
         return categorieEntiteDao.findByCode(code);
