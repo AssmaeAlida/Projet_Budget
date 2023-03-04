@@ -12,25 +12,26 @@ import java.util.List;
 @Service
 public class ExpressionBesoinProduitService {
     @Autowired
-    private ExpressionBesoinProduitDao expressionBesoinProdDao;
+    private ExpressionBesoinProduitDao expressionBesoinProduitDao;
 
-    public int save(ExpressionBesoinProduit expressionBesoinProd){
-        if (expressionBesoinProdDao.findByCode(expressionBesoinProd.getCode())!=null){
+    public int save(ExpressionBesoinProduit expressionBesoinProduit) {
+        if (expressionBesoinProduitDao.findByCode(expressionBesoinProduit.getCode()) != null) {
             return -1;
-        }else {
-            expressionBesoinProdDao.save(expressionBesoinProd);
+        } else {
+            expressionBesoinProduitDao.save(expressionBesoinProduit);
             return 1;
         }
     }
+
     public ExpressionBesoinProduit findByCode(String code) {
-        return expressionBesoinProdDao.findByCode(code);
+        return expressionBesoinProduitDao.findByCode(code);
     }
-    @Transactional
+   @Transactional
     public int deleteByCode(String code) {
-        return expressionBesoinProdDao.deleteByCode(code);
+        return expressionBesoinProduitDao.deleteByCode(code);
     }
 
     public List<ExpressionBesoinProduit> findAll() {
-        return expressionBesoinProdDao.findAll();
+        return expressionBesoinProduitDao.findAll();
     }
 }
