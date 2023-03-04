@@ -6,17 +6,17 @@ import jakarta.persistence.*;
 public class ExpressionBesoinProduit {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id ;
-   @ManyToOne
-    private Produit produit ;
-   @ManyToOne
-    private ExpressionBesoin expressionBesoin ;
-    private double qte;
+    private Long id;
+    @ManyToOne
+    private Produit produit;
+    @ManyToOne
+    private ExpressionBesoin expressionBesoin;
+    private double quantite;
     private String code;
-    private double qteAccordee;
-    private double qteDemandee;
-    private double qteReception;
-    private double qteLivraison;
+    private double quantiteAccordee;
+    private double quantiteDemandee;
+    private double quantiteReception;
+    private double quantiteLivraison;
 
     public Long getId() {
         return id;
@@ -34,44 +34,20 @@ public class ExpressionBesoinProduit {
         this.produit = produit;
     }
 
-    public int getQte() {
-        return qte;
+    public ExpressionBesoin getExpressionBesoin() {
+        return expressionBesoin;
     }
 
-    public void setQte(int qte) {
-        this.qte = qte;
+    public void setExpressionBesoin(ExpressionBesoin expressionBesoin) {
+        this.expressionBesoin = expressionBesoin;
     }
 
-    public int getQteAccordee() {
-        return qteAccordee;
+    public double getQuantite() {
+        return quantite;
     }
 
-    public void setQteAccordee(int qteAccordee) {
-        this.qteAccordee = qteAccordee;
-    }
-
-    public int getQteDemandee() {
-        return qteDemandee;
-    }
-
-    public void setQteDemandee(int qteDemandee) {
-        this.qteDemandee = qteDemandee;
-    }
-
-    public int getQteReception() {
-        return qteReception;
-    }
-
-    public void setQteReception(int qteReception) {
-        this.qteReception = qteReception;
-    }
-
-    public int getQteLivraison() {
-        return qteLivraison;
-    }
-
-    public void setQteLivraison(int qteLivraison) {
-        this.qteLivraison = qteLivraison;
+    public void setQuantite(double quantite) {
+        this.quantite = quantite;
     }
 
     public String getCode() {
@@ -80,5 +56,37 @@ public class ExpressionBesoinProduit {
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    public double getQuantiteAccordee() {
+        return quantiteAccordee;
+    }
+
+    public void setQuantiteAccordee(double quantiteAccordee) {
+        this.quantiteAccordee = quantiteAccordee;
+    }
+
+    public double getQuantiteDemandee() {
+        return quantiteDemandee;
+    }
+
+    public void setQuantiteDemandee(double quantiteDemandee) {
+        this.quantiteDemandee = quantiteDemandee;
+    }
+
+    public double getQuantiteReception() {
+        return quantiteReception;
+    }
+
+    public void setQuantiteReception(double quantiteReception) {
+        this.quantiteReception = quantiteReception;
+    }
+
+    public double getQuantiteLivraison() {
+        return quantiteLivraison;
+    }
+
+    public void setQuantiteLivraison(double quantiteLivraison) {
+        this.quantiteLivraison = quantiteLivraison;
     }
 }

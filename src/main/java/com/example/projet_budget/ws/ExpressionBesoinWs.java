@@ -17,16 +17,16 @@ public class ExpressionBesoinWs {
     public int save(@RequestBody ExpressionBesoin expressionBesoin) {
         return expressionBesoinService.save(expressionBesoin);
     }
-     @GetMapping("/code/{code}")
+    @GetMapping("/code/{code}")
     public ExpressionBesoin findByCode(@PathVariable String code) {
         return expressionBesoinService.findByCode(code);
     }
-    @DeleteMapping ("/code/{code}")
+    @DeleteMapping("/code{code}")
     @Transactional
     public int deleteByCode(@PathVariable String code) {
         return expressionBesoinService.deleteByCode(code);
     }
-    @GetMapping("/")
+    @PostMapping("/")
     public List<ExpressionBesoin> findAll() {
         return expressionBesoinService.findAll();
     }

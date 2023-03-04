@@ -10,11 +10,10 @@ public class ExpressionBesoin {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id ;
     @ManyToOne
-    private BudgetEntiteAdministratif budgetEntite;
+    private BudgetEntiteAdministratif budgetEntiteAdministratif;
     private double total;
     private String code;
-    private Date dateExpression;
-
+    private Date dateExpressionBesoin ;
 
     public Long getId() {
         return id;
@@ -24,12 +23,12 @@ public class ExpressionBesoin {
         this.id = id;
     }
 
-    public BudgetEntite getBudgetEntite() {
-        return budgetEntite;
+    public BudgetEntiteAdministratif getBudgetEntiteAdministratif() {
+        return budgetEntiteAdministratif;
     }
 
-    public void setBudgetEntite(BudgetEntite budgetEntite) {
-        this.budgetEntite = budgetEntite;
+    public void setBudgetEntiteAdministratif(BudgetEntiteAdministratif budgetEntiteAdministratif) {
+        this.budgetEntiteAdministratif = budgetEntiteAdministratif;
     }
 
     public double getTotal() {
@@ -40,19 +39,19 @@ public class ExpressionBesoin {
         this.total = total;
     }
 
-    public Date getDateExpression() {
-        return dateExpression;
-    }
-
-    public void setDateExpression(Date dateExpression) {
-        this.dateExpression = dateExpression;
-    }
-
     public String getCode() {
         return code;
     }
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    public Date getDateExpressionBesoin() {
+        return dateExpressionBesoin;
+    }
+
+    public void setDateExpressionBesoin(Date dateExpressionBesoin) {
+        this.dateExpressionBesoin = dateExpressionBesoin;
     }
 }

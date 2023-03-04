@@ -13,7 +13,7 @@ public class Produit {
     private String libelle;
     private String code;
     @ManyToOne
-    private CategorieProd categorieProd;
+    private CategorieProduit categorieProduit;
 
     public Long getId() {
         return id;
@@ -39,11 +39,11 @@ public class Produit {
         this.code = code;
     }
 
-    public CategorieProd getCategorieProd() {
-        return categorieProd;
+    public CategorieProduit getCategorieProduit() {
+        return categorieProduit;
     }
 
-    public void setCategorieProd(CategorieProd categorieProd) {
-        this.categorieProd = categorieProd;
+    public void setCategorieProduit(CategorieProduit categorieProduit) {
+        this.categorieProduit = categorieProduit;
     }
 }
