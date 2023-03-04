@@ -24,7 +24,7 @@ public class AppelAchatService {
             return -1;
         } else if (appelAchat.getCategorieAppelAchat().getCode()==null) {
                 return -2;
-        } else if (appelAchat.getAppelAchatProd().getRef()==null) {
+        } else if (appelAchat.getAppelAchatProduit().getRef()==null) {
             return -3;
 
         } else {
