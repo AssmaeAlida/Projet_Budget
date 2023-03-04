@@ -6,22 +6,13 @@ import jakarta.persistence.*;
 public class AppelAchatProduit {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id ;
-    private String ref ;
+    private Long id;
+    private String ref;
+    private double quantite;
+    private double quantiteReception;
+    private double quantiteLivraison;
     @ManyToOne
     private Produit produit;
-    private double qte;
-    private double qteReception;
-    private double qteLivraison;
-@ManyToOne
-private AppelAchat appelAchat;
-    public String getRef() {
-        return ref;
-    }
-
-    public void setRef(String ref) {
-        this.ref = ref;
-    }
 
     public Long getId() {
         return id;
@@ -31,6 +22,38 @@ private AppelAchat appelAchat;
         this.id = id;
     }
 
+    public String getRef() {
+        return ref;
+    }
+
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
+
+    public double getQuantite() {
+        return quantite;
+    }
+
+    public void setQuantite(double quantite) {
+        this.quantite = quantite;
+    }
+
+    public double getQuantiteReception() {
+        return quantiteReception;
+    }
+
+    public void setQuantiteReception(double quantiteReception) {
+        this.quantiteReception = quantiteReception;
+    }
+
+    public double getQuantiteLivraison() {
+        return quantiteLivraison;
+    }
+
+    public void setQuantiteLivraison(double quantiteLivraison) {
+        this.quantiteLivraison = quantiteLivraison;
+    }
+
     public Produit getProduit() {
         return produit;
     }
@@ -38,30 +61,4 @@ private AppelAchat appelAchat;
     public void setProduit(Produit produit) {
         this.produit = produit;
     }
-
-    public int getQte() {
-        return qte;
-    }
-
-    public void setQte(int qte) {
-        this.qte = qte;
-    }
-
-    public int getQteReception() {
-        return qteReception;
-    }
-
-    public void setQteReception(int qteReception) {
-        this.qteReception = qteReception;
-    }
-
-    public int getQteLivraison() {
-        return qteLivraison;
-    }
-
-    public void setQteLivraison(int qteLivraison) {
-        this.qteLivraison = qteLivraison;
-    }
-
-
 }

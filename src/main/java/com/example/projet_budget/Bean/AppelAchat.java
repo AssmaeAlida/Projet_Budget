@@ -17,13 +17,7 @@ public class AppelAchat {
     @ManyToOne
     private AppelAchatProduit appelAchatProduit;
 
-    public AppelAchatProduit getAppelAchatProd() {
-        return appelAchatProd;
-    }
 
-    public void setAppelAchatProd(AppelAchatProduit appelAchatProd) {
-        this.appelAchatProduit = appelAchatProduit;
-    }
 
     public String getRef() {
         return ref;
@@ -63,5 +57,13 @@ public class AppelAchat {
 
     public void setCategorieAppelAchat(CategorieAppelAchat categorieAppelAchat) {
         this.categorieAppelAchat = categorieAppelAchat;
+    }
+
+    public AppelAchatProduit getAppelAchatProduit() {
+        return appelAchatProduit;
+    }
+
+    public void setAppelAchatProduit(AppelAchatProduit appelAchatProduit) {
+        this.appelAchatProduit = appelAchatProduit;
     }
 }

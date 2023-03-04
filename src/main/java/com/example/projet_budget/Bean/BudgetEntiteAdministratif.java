@@ -7,6 +7,7 @@ public class BudgetEntiteAdministratif {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id ;
+    private String ref;
     @ManyToOne
     private EntiteAdministratif entiteAdministratif;
     @ManyToOne
@@ -61,5 +62,13 @@ public class BudgetEntiteAdministratif {
 
     public void setMontantTotal(double montantTotal) {
         this.montantTotal = montantTotal;
+    }
+
+    public String getRef() {
+        return ref;
+    }
+
+    public void setRef(String ref) {
+        this.ref = ref;
     }
 }

@@ -9,7 +9,7 @@ public class EntiteAdministratif {
     private String libelle;
     private String code;
     @ManyToOne
-    private CategorieEntite categorieEntite;
+    private CategorieEntiteAdministratif categorieEntiteAdministratif;
 
     public Long getId() {
         return id;
@@ -35,11 +35,11 @@ public class EntiteAdministratif {
         this.code = code;
     }
 
-    public CategorieEntite getCategorieEntite() {
-        return categorieEntite;
+    public CategorieEntiteAdministratif getCategorieEntite() {
+        return categorieEntiteAdministratif;
     }
 
-    public void setCategorieEntite(CategorieEntite categorieEntite) {
-        this.categorieEntite = categorieEntite;
+    public void setCategorieEntite(CategorieEntiteAdministratif categorieEntiteAdministratif) {
+        this.categorieEntiteAdministratif = categorieEntiteAdministratif;
     }
 }

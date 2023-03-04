@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface BudgetEntiteAdministratifDao extends JpaRepository <BudgetEntiteAdministratif,Long> {
-    BudgetEntiteAdministratif findBybudget(Budget budget);
-    int deleteByBudget(Budget budget);
+    BudgetEntiteAdministratif findByRef(String ref);
+    int deleteByRef(String ref);
 }
