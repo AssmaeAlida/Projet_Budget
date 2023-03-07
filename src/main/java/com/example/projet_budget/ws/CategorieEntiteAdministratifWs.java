@@ -22,12 +22,11 @@ public class CategorieEntiteAdministratifWs {
     public int deleteByCode(@PathVariable String code) {
         return categorieEntiteAdministratifService.deleteByCode(code);
     }
-    @GetMapping("categorieEntiteAdministratif/code/{code}")
-    public List<CategorieEntiteAdministratif> findByCategorieEntiteAdministratifCode(@PathVariable String code) {
-        return categorieEntiteAdministratifService.findByCategorieEntiteCode(code);
-    }
+
+
     @PostMapping ("/")
     public int save(@RequestBody CategorieEntiteAdministratif categorieEntiteAdministratif) {
         return categorieEntiteAdministratifService.save(categorieEntiteAdministratif);
     }
+
 }

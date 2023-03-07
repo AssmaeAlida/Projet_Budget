@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface AppelAchatProduitDao extends JpaRepository<AppelAchatProduit, Long> {
     AppelAchatProduit findByRef(String ref);
-    List <AppelAchatProduit> findByAppelAchatProduitRef(String ref);
+
 
     int deleteByRef(String ref);
 

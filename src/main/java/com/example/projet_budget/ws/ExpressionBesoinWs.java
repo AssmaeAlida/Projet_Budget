@@ -26,8 +26,5 @@ public class ExpressionBesoinWs {
     public int deleteByCode(@PathVariable String code) {
         return expressionBesoinService.deleteByCode(code);
     }
-    @PostMapping("/")
-    public List<ExpressionBesoin> findAll() {
-        return expressionBesoinService.findAll();
-    }
+
 }

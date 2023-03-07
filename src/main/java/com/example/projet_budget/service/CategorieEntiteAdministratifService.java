@@ -1,6 +1,8 @@
 package com.example.projet_budget.Service;
 
+import com.example.projet_budget.Bean.Budget;
 import com.example.projet_budget.Bean.CategorieEntiteAdministratif;
+import com.example.projet_budget.Bean.EntiteAdministratif;
 import com.example.projet_budget.Dao.CategorieEntiteAdministratifDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,12 +24,14 @@ public class CategorieEntiteAdministratifService {
         return categorieEntiteAdministratifDao.deleteByCode(code);
     }
 
-    public List<CategorieEntiteAdministratif> findByCategorieEntiteCode(String code) {
-        return categorieEntiteAdministratifDao.findByCategorieEntiteAdministratifCode(code);
-    }
 
-    public int save(CategorieEntiteAdministratif categorieEntiteAdministratif) {
-         categorieEntiteAdministratifDao.save(categorieEntiteAdministratif);
-         return 1;
-    }
-}
+
+    public int save(CategorieEntiteAdministratif categorieEntiteAdministratif){
+        if (findByCode(categorieEntiteAdministratif.getCode()) != null) {
+            return -1;
+        } else {
+            categorieEntiteAdministratifDao.save(categorieEntiteAdministratif);
+            return 1;
+
+        }
+    }}

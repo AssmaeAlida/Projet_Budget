@@ -11,8 +11,6 @@ public interface CategorieEntiteAdministratifDao extends JpaRepository<Categorie
     CategorieEntiteAdministratif findByCode(String code);
     int deleteByCode(String code);
 
-    List<CategorieEntiteAdministratif> findByCategorieEntiteAdministratifCode(String code);
-
 
 
 }
