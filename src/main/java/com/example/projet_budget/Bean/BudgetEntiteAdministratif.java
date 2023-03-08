@@ -15,6 +15,8 @@ public class BudgetEntiteAdministratif {
     private double montantInvestissement ;
     private double montantFonctionnement ;
     private double montantTotal ;
+    @OneToOne
+    private CategorieEntiteAdministratif categorieEntiteAdministratif;
 
     public Long getId() {
         return id;
@@ -70,5 +72,13 @@ public class BudgetEntiteAdministratif {
 
     public void setRef(String ref) {
         this.ref = ref;
+    }
+
+    public CategorieEntiteAdministratif getCategorieEntiteAdministratif() {
+        return categorieEntiteAdministratif;
+    }
+
+    public void setCategorieEntiteAdministratif(CategorieEntiteAdministratif categorieEntiteAdministratif) {
+        this.categorieEntiteAdministratif = categorieEntiteAdministratif;
     }
 }

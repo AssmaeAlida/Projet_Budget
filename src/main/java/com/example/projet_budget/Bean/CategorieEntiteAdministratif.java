@@ -11,6 +11,7 @@ public class CategorieEntiteAdministratif {
     private Long id ;
     private String libelle ;
     private String code ;
+    private double pourcentage ;
 
     public Long getId() {
         return id;
@@ -34,5 +35,13 @@ public class CategorieEntiteAdministratif {
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    public double getPourcentage() {
+        return pourcentage;
+    }
+
+    public void setPourcentage(double pourcentage) {
+        this.pourcentage = pourcentage;
     }
 }

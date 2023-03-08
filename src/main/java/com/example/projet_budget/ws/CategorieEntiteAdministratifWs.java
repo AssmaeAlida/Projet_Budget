@@ -1,4 +1,4 @@
-package com.example.projet_budget.ws;
+package com.example.projet_budget.Ws;
 
 import com.example.projet_budget.Bean.CategorieEntiteAdministratif;
 import com.example.projet_budget.Service.CategorieEntiteAdministratifService;

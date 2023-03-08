@@ -1,4 +1,4 @@
-package com.example.projet_budget.service;
+package com.example.projet_budget.Service;
 
 import com.example.projet_budget.Bean.Budget;
 import com.example.projet_budget.Dao.BudgetDao;

@@ -1,6 +1,8 @@
 package com.example.projet_budget.Ws;
 
 import com.example.projet_budget.Bean.BudgetEntiteAdministratif;
+import com.example.projet_budget.Service.BudgetEntiteAdministratifService;
+import com.example.projet_budget.Bean.CategorieEntiteAdministratif;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,13 +12,13 @@ import java.util.List;
 @RestController @RequestMapping("/api/v1/budgetEntiteAdministratif")
 public class BudgetEntiteAdministratifWs {
     @Autowired
-    private com.example.projet_budget.service.BudgetEntiteAdministratifService budgetEntiteAdministratifService;
-   @PostMapping("/")
-    public int save(@RequestBody BudgetEntiteAdministratif budgetEntite) {
-        return budgetEntiteAdministratifService.save(budgetEntite);
+    private BudgetEntiteAdministratifService budgetEntiteAdministratifService;
+    @PostMapping("/")
+    public int save(@PathVariable int annee, @RequestBody CategorieEntiteAdministratif categorieEntiteAdministratif) {
+        return budgetEntiteAdministratifService.save(annee, categorieEntiteAdministratif);
     }
    @GetMapping("/budget/{budget}")
-    public BudgetEntiteAdministratif findByRef(String ref) {
+    public BudgetEntiteAdministratif findByRef(@PathVariable String ref) {
         return budgetEntiteAdministratifService.findByRef(ref);
     }
   @DeleteMapping("budget/{budget}")
