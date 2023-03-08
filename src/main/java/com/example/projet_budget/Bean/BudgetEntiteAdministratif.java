@@ -8,6 +8,7 @@ public class BudgetEntiteAdministratif {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id ;
     private String ref;
+
     @ManyToOne
     private EntiteAdministratif entiteAdministratif;
     @ManyToOne
@@ -81,4 +82,6 @@ public class BudgetEntiteAdministratif {
     public void setCategorieEntiteAdministratif(CategorieEntiteAdministratif categorieEntiteAdministratif) {
         this.categorieEntiteAdministratif = categorieEntiteAdministratif;
     }
+
+
 }

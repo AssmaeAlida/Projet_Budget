@@ -13,10 +13,7 @@ import java.util.List;
 public class BudgetEntiteAdministratifWs {
     @Autowired
     private BudgetEntiteAdministratifService budgetEntiteAdministratifService;
-    @PostMapping("/")
-    public int save(@PathVariable int annee, @RequestBody CategorieEntiteAdministratif categorieEntiteAdministratif) {
-        return budgetEntiteAdministratifService.save(annee, categorieEntiteAdministratif);
-    }
+
    @GetMapping("/budget/{budget}")
     public BudgetEntiteAdministratif findByRef(@PathVariable String ref) {
         return budgetEntiteAdministratifService.findByRef(ref);
