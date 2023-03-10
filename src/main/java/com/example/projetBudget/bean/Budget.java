@@ -1,9 +1,8 @@
 package com.example.projetBudget.bean;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Budget {
@@ -14,6 +13,8 @@ public class Budget {
     private double montantInvestissement ;
     private double montantFonctionnement ;
     private double montantTotal ;
+    @OneToMany(mappedBy = "budget")
+    private List<BudgetEntiteAdministratif> budgetEntiteAdministratifs;
 
     public Long getId() {
         return id;
@@ -53,5 +54,13 @@ public class Budget {
 
     public void setMontantTotal(double montantTotal) {
         this.montantTotal = montantTotal;
+    }
+
+    public List<BudgetEntiteAdministratif> getBudgetEntiteAdministratifs() {
+        return budgetEntiteAdministratifs;
+    }
+
+    public void setBudgetEntiteAdministratifs(List<BudgetEntiteAdministratif> budgetEntiteAdministratifs) {
+        this.budgetEntiteAdministratifs = budgetEntiteAdministratifs;
     }
 }

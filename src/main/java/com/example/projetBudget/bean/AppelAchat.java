@@ -1,8 +1,10 @@
 package com.example.projetBudget.bean;
 
 import jakarta.persistence.*;
+import org.w3c.dom.stylesheets.LinkStyle;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class AppelAchat {
@@ -14,18 +16,9 @@ public class AppelAchat {
     private double totale;
     @ManyToOne
     private CategorieAppelAchat categorieAppelAchat;
-    @ManyToOne
-    private AppelAchatProduit appelAchatProduit;
+    @OneToMany(mappedBy = "appelAchat")
+    private List<AppelAchatProduit> appelAchatProduits;
 
-
-
-    public String getRef() {
-        return ref;
-    }
-
-    public void setRef(String ref) {
-        this.ref = ref;
-    }
 
     public Long getId() {
         return id;
@@ -35,12 +28,20 @@ public class AppelAchat {
         this.id = id;
     }
 
+    public String getRef() {
+        return ref;
+    }
+
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
+
     public Date getDateAppelAchat() {
         return dateAppelAchat;
     }
 
     public void setDateAppelAchat(Date dateAppelAchat) {
-        dateAppelAchat = dateAppelAchat;
+        this.dateAppelAchat = dateAppelAchat;
     }
 
     public double getTotale() {
@@ -59,11 +60,11 @@ public class AppelAchat {
         this.categorieAppelAchat = categorieAppelAchat;
     }
 
-    public AppelAchatProduit getAppelAchatProduit() {
-        return appelAchatProduit;
+    public List<AppelAchatProduit> getAppelAchatProduits() {
+        return appelAchatProduits;
     }
 
-    public void setAppelAchatProduit(AppelAchatProduit appelAchatProduit) {
-        this.appelAchatProduit = appelAchatProduit;
+    public void setAppelAchatProduits(List<AppelAchatProduit> appelAchatProduits) {
+        this.appelAchatProduits = appelAchatProduits;
     }
 }

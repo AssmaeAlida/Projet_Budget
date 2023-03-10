@@ -13,6 +13,8 @@ public class AppelAchatProduit {
     private double quantiteLivraison;
     @ManyToOne
     private Produit produit;
+    @ManyToOne
+    private AppelAchat appelAchat;
 
     public Long getId() {
         return id;
@@ -60,5 +62,13 @@ public class AppelAchatProduit {
 
     public void setProduit(Produit produit) {
         this.produit = produit;
+    }
+
+    public AppelAchat getAppelAchat() {
+        return appelAchat;
+    }
+
+    public void setAppelAchat(AppelAchat appelAchat) {
+        this.appelAchat = appelAchat;
     }
 }
