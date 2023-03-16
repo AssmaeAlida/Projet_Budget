@@ -14,7 +14,7 @@ public class AppelAchatService {
     public AppelAchat findByRef(String ref) {
         return appelAchatDao.findByRef(ref);
     }
-@Transactional
+    @Transactional
     public int deleteByRef(String ref) {
         return appelAchatDao.deleteByRef(ref);
     }
@@ -24,9 +24,6 @@ public class AppelAchatService {
             return -1;
         } else if (appelAchat.getCategorieAppelAchat().getCode()==null) {
                 return -2;
-        } else if (appelAchat.getAppelAchatProduit().getRef()==null) {
-            return -3;
-
         } else {
             appelAchatDao.save(appelAchat);
             return 1;

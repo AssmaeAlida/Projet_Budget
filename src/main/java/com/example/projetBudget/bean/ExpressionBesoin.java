@@ -3,6 +3,7 @@ package com.example.projetBudget.bean;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class ExpressionBesoin {

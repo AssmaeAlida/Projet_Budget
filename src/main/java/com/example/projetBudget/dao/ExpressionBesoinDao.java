@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 public interface ExpressionBesoinDao extends JpaRepository<ExpressionBesoin,Long> {
     ExpressionBesoin findByCode(String code);
     int deleteByCode(String code);
+
 }

@@ -1,7 +1,9 @@
 package com.example.projetBudget.service;
 
 import com.example.projetBudget.bean.ExpressionBesoin;
+import com.example.projetBudget.bean.ExpressionBesoinProduit;
 import com.example.projetBudget.dao.ExpressionBesoinDao;
+import com.example.projetBudget.dao.ExpressionBesoinProduitDao;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
@@ -13,16 +15,17 @@ import java.util.List;
 public class ExpressionBesoinService {
     @Autowired
     private ExpressionBesoinDao expressionBesoinDao;
+    @Autowired
+    private ExpressionBesoinProduitDao expressionBesoinProduitDao;
 
-    public int save(ExpressionBesoin expressionBesoin){
-        if (expressionBesoinDao.findByCode(expressionBesoin.getCode())!=null){
+    public int save(ExpressionBesoin expressionBesoin) {
+        if (expressionBesoinDao.findByCode(expressionBesoin.getCode()) != null) {
             return -1;
-        }else {
-            expressionBesoinDao.save(expressionBesoin);
-            return 1;
+        } else {
+           expressionBesoinDao.save(expressionBesoin);
+           return 1;
         }
     }
-
     public ExpressionBesoin findByCode(String code) {
         return expressionBesoinDao.findByCode(code);
     }
@@ -35,5 +38,3 @@ public class ExpressionBesoinService {
         return expressionBesoinDao.findAll();
     }
 }
-
-
