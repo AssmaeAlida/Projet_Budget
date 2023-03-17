@@ -13,20 +13,19 @@ public class ExpressionBesoinProduitWs {
     @Autowired
     private ExpressionBesoinProduitService expressionBesoinProduitService;
     @PostMapping("/")
-
     public int save(@RequestBody ExpressionBesoinProduit expressionBesoinProduit) {
         return expressionBesoinProduitService.save(expressionBesoinProduit);
     }
-    @GetMapping("/code/{code}")
-    public ExpressionBesoinProduit findByCode(String code) {
+    @GetMapping("code/{code}")
+    public ExpressionBesoinProduit findByCode(@PathVariable String code) {
         return expressionBesoinProduitService.findByCode(code);
     }
-     @GetMapping("/code{code}")
+    @DeleteMapping("code/{code}")
     @Transactional
-    public int deleteByCode(String code) {
+    public int deleteByCode(@PathVariable String code) {
         return expressionBesoinProduitService.deleteByCode(code);
     }
-    @GetMapping("/")
+     @GetMapping("/")
     public List<ExpressionBesoinProduit> findAll() {
         return expressionBesoinProduitService.findAll();
     }

@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.util.Date;
 import java.util.List;
 
+
 @Entity
 public class ExpressionBesoin {
     @Id
@@ -16,6 +17,9 @@ public class ExpressionBesoin {
     private String code;
     private Date dateExpressionBesoin ;
 
+    @OneToMany(mappedBy = "expressionBesoin")
+    private List<ExpressionBesoinProduit> expressionBesoinProduitList;
+
     public Long getId() {
         return id;
     }
@@ -23,6 +27,7 @@ public class ExpressionBesoin {
     public void setId(Long id) {
         this.id = id;
     }
+
 
     public BudgetEntiteAdministratif getBudgetEntiteAdministratif() {
         return budgetEntiteAdministratif;
@@ -54,5 +59,13 @@ public class ExpressionBesoin {
 
     public void setDateExpressionBesoin(Date dateExpressionBesoin) {
         this.dateExpressionBesoin = dateExpressionBesoin;
+    }
+
+    public List<ExpressionBesoinProduit> getExpressionBesoinProduitList() {
+        return expressionBesoinProduitList;
+    }
+
+    public void setExpressionBesoinProduitList(List<ExpressionBesoinProduit> expressionBesoinProduitList) {
+        this.expressionBesoinProduitList = expressionBesoinProduitList;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.projetBudget.Ws;
+package com.example.projetBudget.ws;
 
 import com.example.projetBudget.bean.EntiteAdministratif;
 import com.example.projetBudget.Service.EntiteAdministratifService;

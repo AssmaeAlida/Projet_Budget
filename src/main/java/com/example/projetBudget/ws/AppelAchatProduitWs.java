@@ -1,26 +1,34 @@
-package com.example.projetBudget.Ws;
+package com.example.projetBudget.ws;
 
+import com.example.projetBudget.bean.AppelAchat;
 import com.example.projetBudget.bean.AppelAchatProduit;
-import com.example.projetBudget.Service.AppelAchatProduitService;
+import com.example.projetBudget.service.AppelAchatProduitService;
+import com.example.projetBudget.service.AppelAchatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("api/v1/appel-achat-prod")
+@RequestMapping("api/v1/appel-achat-produit")
 public class AppelAchatProduitWs {
     @Autowired
     private AppelAchatProduitService appelAchatProduitService;
-    @GetMapping("/ref/{ref}")
-    public AppelAchatProduit findByRef(@PathVariable String ref) {
-        return appelAchatProduitService.findByRef(ref);
+    @GetMapping("/AppelAchatRef/{AppelAchatRef}")
+    public List<AppelAchatProduit> findByAppelAchatRef(@PathVariable String ref) {
+        return appelAchatProduitService.findByAppelAchatRef(ref);
     }
-    @DeleteMapping("/ref/{ref}")
+   @DeleteMapping("/AppelAchatRef/{AppelAchatRef}")
     @Transactional
-    public int deleteByRef(@PathVariable String ref) {
-        return appelAchatProduitService.deleteByRef(ref);
+    public int deleteByAppelAchatRef(@PathVariable String ref) {
+        return appelAchatProduitService.deleteByAppelAchatRef(ref);
     }
-@PostMapping("/")
+   @GetMapping("/")
+    public List<AppelAchatProduit> findAll() {
+        return appelAchatProduitService.findAll();
+    }
+   @PostMapping("/")
     public int save(@RequestBody AppelAchatProduit appelAchatProduit) {
         return appelAchatProduitService.save(appelAchatProduit);
     }

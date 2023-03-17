@@ -21,14 +21,7 @@ public class ExpressionBesoinProduitService {
              return -1;
         } else {
             expressionBesoinProduitDao.save(expressionBesoinProduit);
-             return 1;
-        }
-    }
-    public void loopThroughProducts() {
-        List<ExpressionBesoinProduit> expressionBesoinProduits = expressionBesoinProduitDao.findAll();
-
-        for(ExpressionBesoinProduit ebp : expressionBesoinProduits) {
-            System.out.println("Produit: " + ebp.getProduit().getLibelle() + " - Quantité: " + ebp.getQuantite());
+            return 1;
         }
     }
 
@@ -40,5 +33,7 @@ public class ExpressionBesoinProduitService {
         return expressionBesoinProduitDao.deleteByCode(code);
     }
 
-
+    public List<ExpressionBesoinProduit> findAll() {
+        return expressionBesoinProduitDao.findAll();
+    }
 }

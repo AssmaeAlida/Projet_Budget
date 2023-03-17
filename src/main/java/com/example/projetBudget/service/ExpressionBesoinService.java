@@ -17,13 +17,17 @@ public class ExpressionBesoinService {
     private ExpressionBesoinDao expressionBesoinDao;
     @Autowired
     private ExpressionBesoinProduitDao expressionBesoinProduitDao;
-
+   private ExpressionBesoinProduitService expressionBesoinProduitService;
     public int save(ExpressionBesoin expressionBesoin) {
         if (expressionBesoinDao.findByCode(expressionBesoin.getCode()) != null) {
             return -1;
         } else {
-           expressionBesoinDao.save(expressionBesoin);
-           return 1;
+            expressionBesoinDao.save(expressionBesoin);
+            for (ExpressionBesoinProduit expressionBesoinProduit : expressionBesoin.getExpressionBesoinProduitList()) {
+                expressionBesoinProduit.setExpressionBesoin(expressionBesoin);
+                expressionBesoinProduitService.save(expressionBesoinProduit);
+            }
+            return 1;
         }
     }
     public ExpressionBesoin findByCode(String code) {
