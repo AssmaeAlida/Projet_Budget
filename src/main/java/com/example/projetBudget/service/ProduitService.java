@@ -34,6 +34,13 @@ public class ProduitService {
             return 1;
         }
     }
+    public int update(Produit produit){
+        if(produitDao.findByCode(produit.getCode())==null){
+            return -4;
+        }
+        else  produitDao.save(produit);
+        return 1;
+    }
 
     public Produit findByCode(String code) {
         return produitDao.findByCode(code);
