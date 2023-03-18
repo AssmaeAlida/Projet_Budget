@@ -1,6 +1,8 @@
 package com.example.projetBudget.service;
 
+import com.example.projetBudget.bean.CategorieProduit;
 import com.example.projetBudget.bean.Produit;
+import com.example.projetBudget.dao.CategorieProduitDao;
 import com.example.projetBudget.dao.ProduitDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,11 +14,22 @@ import java.util.List;
 public class ProduitService {
     @Autowired
     private ProduitDao produitDao;
+    @Autowired
+    private CategorieProduitService categorieProduitService;
 
     public int save(Produit produit){
+        CategorieProduit loadedCategorieProduit=categorieProduitService.findByCode(produit.getCategorieProduit().getCode());
+        produit.setCategorieProduit(loadedCategorieProduit);
         if (produitDao.findByCode(produit.getCode())!=null){
             return -1;
-        }else {
+            }
+        else if(produit.getCode()==null ){
+            return -2;
+        }
+        else if (produit.getCategorieProduit()==null) {
+            return -3;
+        }
+        else {
             produitDao.save(produit);
             return 1;
         }

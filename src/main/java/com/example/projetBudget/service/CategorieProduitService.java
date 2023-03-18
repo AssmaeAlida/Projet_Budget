@@ -16,6 +16,8 @@ public class CategorieProduitService {
     public int save(CategorieProduit categorieProduit) {
         if (categorieProduitDao.findByCode(categorieProduit.getCode()) != null) {
             return -1;
+        } else if (categorieProduit.getCode()==null) {
+            return -2;
         } else {
             categorieProduitDao.save(categorieProduit);
             return 1;
