@@ -36,7 +36,7 @@ public class ProduitService {
     }
     public int update(Produit produit){
         if(produitDao.findByCode(produit.getCode())==null){
-            return -4;
+            return -1;
         }
         else  produitDao.save(produit);
         return 1;
