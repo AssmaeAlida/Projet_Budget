@@ -13,17 +13,27 @@ public class BudgetEntiteAdministratifWs {
     @Autowired
     private BudgetEntiteAdministratifService budgetEntiteAdministratifService;
 
-   @GetMapping("/budget/{budget}")
+   @GetMapping("/ref/{ref}")
     public BudgetEntiteAdministratif findByRef(@PathVariable String ref) {
         return budgetEntiteAdministratifService.findByRef(ref);
     }
-  @DeleteMapping("budget/{budget}")
+  @DeleteMapping("ref/{ref}")
     @Transactional
-    public int deleteByRef(@PathVariable String ref) {
+    public int deleteByRef(@PathVariable String ref)
+  {
         return budgetEntiteAdministratifService.deleteByRef(ref);
     }
 @GetMapping("/")
     public List<BudgetEntiteAdministratif> findAll() {
         return budgetEntiteAdministratifService.findAll();
+
+    }
+@PostMapping("/")
+    public int save(@RequestBody BudgetEntiteAdministratif budgetEntiteAdministratif) {
+        return budgetEntiteAdministratifService.save(budgetEntiteAdministratif);
+    }
+@PutMapping("/ref/{ref}/annee/{annee}")
+    public int calculer(@PathVariable String ref,@PathVariable int annee) {
+        return budgetEntiteAdministratifService.calculer(ref, annee);
     }
 }

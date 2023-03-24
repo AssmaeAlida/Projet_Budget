@@ -6,12 +6,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class CategorieAppelAchat {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id ;
-    private String libelle ;
-    private String code ;
+    public class CategorieAppelAchat {
+        @Id
+        @GeneratedValue(strategy = GenerationType.AUTO)
+        private Long id ;
+        private String libelle ;
+        private String code ;
 
     public Long getId() {
         return id;

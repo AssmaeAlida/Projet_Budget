@@ -15,11 +15,11 @@ import java.util.List;
 public class AppelAchatProduitWs {
     @Autowired
     private AppelAchatProduitService appelAchatProduitService;
-    @GetMapping("/AppelAchatRef/{AppelAchatRef}")
+    @GetMapping("/AppelAchat/ref/{ref}")
     public List<AppelAchatProduit> findByAppelAchatRef(@PathVariable String ref) {
         return appelAchatProduitService.findByAppelAchatRef(ref);
     }
-   @DeleteMapping("/AppelAchatRef/{AppelAchatRef}")
+   @DeleteMapping("/AppelAchat/ref/{ref}")
     @Transactional
     public int deleteByAppelAchatRef(@PathVariable String ref) {
         return appelAchatProduitService.deleteByAppelAchatRef(ref);
