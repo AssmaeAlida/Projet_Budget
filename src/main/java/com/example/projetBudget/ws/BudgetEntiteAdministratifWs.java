@@ -1,7 +1,6 @@
-package com.example.projetBudget.Ws;
-
+package com.example.projetBudget.ws;
 import com.example.projetBudget.bean.BudgetEntiteAdministratif;
-import com.example.projetBudget.Service.BudgetEntiteAdministratifService;
+import com.example.projetBudget.service.BudgetEntiteAdministratifService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -23,16 +22,16 @@ public class BudgetEntiteAdministratifWs {
   {
         return budgetEntiteAdministratifService.deleteByRef(ref);
     }
-@GetMapping("/")
+   @GetMapping("/")
     public List<BudgetEntiteAdministratif> findAll() {
         return budgetEntiteAdministratifService.findAll();
 
     }
-@PostMapping("/")
+    @PostMapping("/")
     public int save(@RequestBody BudgetEntiteAdministratif budgetEntiteAdministratif) {
         return budgetEntiteAdministratifService.save(budgetEntiteAdministratif);
     }
-@PutMapping("/ref/{ref}/annee/{annee}")
+    @PutMapping("/ref/{ref}/annee/{annee}")
     public int calculer(@PathVariable String ref,@PathVariable int annee) {
         return budgetEntiteAdministratifService.calculer(ref, annee);
     }

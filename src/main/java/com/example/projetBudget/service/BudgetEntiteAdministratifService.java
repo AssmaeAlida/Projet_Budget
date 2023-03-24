@@ -1,4 +1,4 @@
-package com.example.projetBudget.Service;
+package com.example.projetBudget.service;
 
 
 import com.example.projetBudget.bean.Budget;
@@ -16,10 +16,7 @@ public class BudgetEntiteAdministratifService {
    @Autowired
     private BudgetEntiteAdministratifDao budgetEntiteAdministratifDao;
    @Autowired
-   private com.example.projetBudget.Service.BudgetService budgetService;
-
-
-
+   private com.example.projetBudget.service.BudgetService budgetService;
 
     public BudgetEntiteAdministratif findByRef(String ref) {
         return budgetEntiteAdministratifDao.findByRef(ref);

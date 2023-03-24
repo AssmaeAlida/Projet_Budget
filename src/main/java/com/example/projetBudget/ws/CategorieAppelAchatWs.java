@@ -1,7 +1,7 @@
-package com.example.projetBudget.Ws;
+package com.example.projetBudget.ws;
 
 import com.example.projetBudget.bean.CategorieAppelAchat;
-import com.example.projetBudget.Service.CategorieAppelAchatService;
+import com.example.projetBudget.service.CategorieAppelAchatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;

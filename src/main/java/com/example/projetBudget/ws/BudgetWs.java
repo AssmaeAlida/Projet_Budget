@@ -10,7 +10,7 @@ import java.util.List;
 @RestController @RequestMapping("/api/v1/budget")
 public class BudgetWs {
     @Autowired
-    private com.example.projetBudget.Service.BudgetService budgetService ;
+    private com.example.projetBudget.service.BudgetService budgetService ;
     @PostMapping("/")
     public int save(@RequestBody Budget budget) {
         return budgetService.save(budget);
