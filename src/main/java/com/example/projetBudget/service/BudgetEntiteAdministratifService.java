@@ -48,6 +48,7 @@ public class BudgetEntiteAdministratifService {
         double newMontantInvertissement=budget.getMontantInvestissement()*pourcentage;
         double newMontantFonctionnement=budget.getMontantFonctionnement()*pourcentage;
         budgetEntiteAdministratif.setMontantTotal(newMontantTotal);
+        budgetEntiteAdministratif.setBudget(budget);
         budgetEntiteAdministratif.setMontantFonctionnement(newMontantFonctionnement);
         budgetEntiteAdministratif.setMontantInvestissement(newMontantInvertissement);
 
