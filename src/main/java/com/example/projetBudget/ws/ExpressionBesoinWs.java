@@ -18,7 +18,7 @@ public class ExpressionBesoinWs {
     public ExpressionBesoin findByCode(@PathVariable String code) {
         return expressionBesoinService.findByCode(code);
     }
-    @DeleteMapping("/code{code}")
+    @DeleteMapping("/code/{code}")
     @Transactional
     public int deleteByCode(@PathVariable String code) {
         return expressionBesoinService.deleteByCode(code);

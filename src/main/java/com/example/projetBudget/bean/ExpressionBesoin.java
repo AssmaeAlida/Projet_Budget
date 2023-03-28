@@ -1,5 +1,6 @@
 package com.example.projetBudget.bean;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -15,6 +16,7 @@ public class ExpressionBesoin {
     private BudgetEntiteAdministratif budgetEntiteAdministratif;
     private double total;
     private String code;
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private Date dateExpressionBesoin ;
 
     @OneToMany(mappedBy = "expressionBesoin")
