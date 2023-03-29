@@ -16,6 +16,7 @@ public class BudgetEntiteAdministratif {
     private double montantInvestissement ;
     private double montantFonctionnement ;
     private double montantTotal ;
+    private double pourcentage ;
     @ManyToOne
     private CategorieEntiteAdministratif categorieEntiteAdministratif;
 
@@ -81,5 +82,13 @@ public class BudgetEntiteAdministratif {
 
     public void setCategorieEntiteAdministratif(CategorieEntiteAdministratif categorieEntiteAdministratif) {
         this.categorieEntiteAdministratif = categorieEntiteAdministratif;
+    }
+
+    public double getPourcentage() {
+        return pourcentage;
+    }
+
+    public void setPourcentage(double pourcentage) {
+        this.pourcentage = pourcentage;
     }
 }

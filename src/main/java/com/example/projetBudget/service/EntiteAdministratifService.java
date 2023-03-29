@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 
 public class EntiteAdministratifService {
@@ -26,12 +28,13 @@ public class EntiteAdministratifService {
     public int save(EntiteAdministratif entiteAdministratif) {
         if(findByCode(entiteAdministratif.getCode())!=null){
             return -1;
-        } else if (entiteAdministratif.getCategorieEntite().getCode()==null) {
-            return -2;
-
-        } else {
+        }  else {
             entiteAdministratifDao.save(entiteAdministratif);
             return 1;
         }
+    }
+
+    public List<EntiteAdministratif> findAll() {
+        return entiteAdministratifDao.findAll();
     }
 }

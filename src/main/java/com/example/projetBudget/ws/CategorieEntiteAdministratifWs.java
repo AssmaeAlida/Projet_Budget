@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/v1/categorie-entite")
+@RequestMapping("/api/v1/categorie-entite")
 public class CategorieEntiteAdministratifWs {
     @Autowired
     private CategorieEntiteAdministratifService categorieEntiteAdministratifService;

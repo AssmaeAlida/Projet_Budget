@@ -13,10 +13,10 @@ import java.util.List;
 
 @Service
 public class BudgetEntiteAdministratifService {
-   @Autowired
+    @Autowired
     private BudgetEntiteAdministratifDao budgetEntiteAdministratifDao;
-   @Autowired
-   private com.example.projetBudget.service.BudgetService budgetService;
+    @Autowired
+    private com.example.projetBudget.service.BudgetService budgetService;
 
     public BudgetEntiteAdministratif findByRef(String ref) {
         return budgetEntiteAdministratifDao.findByRef(ref);
@@ -29,24 +29,36 @@ public class BudgetEntiteAdministratifService {
     public List<BudgetEntiteAdministratif> findAll() {
         return budgetEntiteAdministratifDao.findAll();
     }
-    public int save(BudgetEntiteAdministratif budgetEntiteAdministratif){
-        if (findByRef(budgetEntiteAdministratif.getRef())!=null){
+
+    public int save(BudgetEntiteAdministratif budgetEntiteAdministratif) {
+        if (findByRef(budgetEntiteAdministratif.getRef()) != null) {
             return -1;
-        }else {
+        } else {
+            Budget budget = budgetEntiteAdministratif.getBudget();
+            budgetEntiteAdministratif.setBudget(budget);
+            double pour=budgetEntiteAdministratif.getPourcentage();
+            double newMontantFonctionnement= budget.getMontantFonctionnement()*pour;
+            double newMontantInvesstissement= budget.getMontantInvestissement()*pour;
+            double newMontantTotal= budget.getMontantTotal()*pour;
+            budgetEntiteAdministratif.setMontantFonctionnement(newMontantFonctionnement);
+            budgetEntiteAdministratif.setMontantTotal(newMontantTotal);
+            budgetEntiteAdministratif.setMontantInvestissement(newMontantInvesstissement);
+
             budgetEntiteAdministratifDao.save(budgetEntiteAdministratif);
 
-            return 1 ;
+            return 1;
 
         }
     }
-    public int calculer(String ref, int annee){
-        Budget budget =budgetService.findByAnnee(annee);
-        BudgetEntiteAdministratif budgetEntiteAdministratif=findByRef(ref);
-        CategorieEntiteAdministratif categorieEntiteAdministratif=budgetEntiteAdministratif.getCategorieEntiteAdministratif();
+
+    public int calculer(String ref, int annee) {
+        Budget budget = budgetService.findByAnnee(annee);
+        BudgetEntiteAdministratif budgetEntiteAdministratif = findByRef(ref);
+        CategorieEntiteAdministratif categorieEntiteAdministratif = budgetEntiteAdministratif.getCategorieEntiteAdministratif();
         double pourcentage = categorieEntiteAdministratif.getPourcentage();
-        double newMontantTotal= budget.getMontantTotal() * pourcentage;
-        double newMontantInvertissement=budget.getMontantInvestissement()*pourcentage;
-        double newMontantFonctionnement=budget.getMontantFonctionnement()*pourcentage;
+        double newMontantTotal = budget.getMontantTotal() * pourcentage;
+        double newMontantInvertissement = budget.getMontantInvestissement() * pourcentage;
+        double newMontantFonctionnement = budget.getMontantFonctionnement() * pourcentage;
         budgetEntiteAdministratif.setMontantTotal(newMontantTotal);
         budgetEntiteAdministratif.setBudget(budget);
         budgetEntiteAdministratif.setMontantFonctionnement(newMontantFonctionnement);

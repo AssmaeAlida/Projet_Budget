@@ -14,15 +14,7 @@ import java.util.List;
 public class BudgetService {
     @Autowired
     private BudgetDao budgetDao;
-    private BudgetEntiteAdministratifDao budgetEntiteAdministratifDao;
-    public int save(Budget budget){
-        if (findByAnnee(budget.getAnnee()) != null) {
-            return -1;
-        } else {
-            budgetDao.save(budget);
-            return 1;
-        }
-    }
+    private BudgetEntiteAdministratifService budgetEntiteAdministratifService;
 
     public Budget findByAnnee(int annee) {
         return budgetDao.findByAnnee(annee);
@@ -34,6 +26,21 @@ public class BudgetService {
 
     public List<Budget> findAll() {
         return budgetDao.findAll();
+    }
+    public int save(Budget budget) {
+        if(findByAnnee(budget.getAnnee())!=null) {
+            return -1;
+        }
+        else {
+            budgetDao.save(budget);
+            for (BudgetEntiteAdministratif budgetEntiteAdministratif:budget.getBudgetEntiteAdministratifs()){
+                budgetEntiteAdministratif.setBudget(budget);
+
+                budgetEntiteAdministratifService.save(budgetEntiteAdministratif);
+            }
+            return 1;
+        }
+
     }
 }
 
