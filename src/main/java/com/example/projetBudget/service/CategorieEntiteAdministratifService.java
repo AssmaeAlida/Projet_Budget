@@ -5,6 +5,8 @@ import com.example.projetBudget.dao.CategorieEntiteAdministratifDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 
 public class CategorieEntiteAdministratifService {
@@ -29,4 +31,9 @@ public class CategorieEntiteAdministratifService {
             return 1;
 
         }
-    }}
+    }
+
+    public List<CategorieEntiteAdministratif> findAll() {
+        return categorieEntiteAdministratifDao.findAll();
+    }
+}

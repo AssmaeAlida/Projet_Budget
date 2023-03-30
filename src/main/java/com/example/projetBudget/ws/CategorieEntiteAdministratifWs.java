@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/categorie-entite")
 public class CategorieEntiteAdministratifWs {
@@ -26,5 +28,8 @@ public class CategorieEntiteAdministratifWs {
     public int save(@RequestBody CategorieEntiteAdministratif categorieEntiteAdministratif) {
         return categorieEntiteAdministratifService.save(categorieEntiteAdministratif);
     }
-
+@GetMapping("/")
+    public List<CategorieEntiteAdministratif> findAll() {
+        return categorieEntiteAdministratifService.findAll();
+    }
 }
