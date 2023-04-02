@@ -35,11 +35,11 @@ public class EntiteAdministratif {
         this.code = code;
     }
 
-    public CategorieEntiteAdministratif getCategorieEntite() {
+    public CategorieEntiteAdministratif getCategorieEntiteAdministratif() {
         return categorieEntiteAdministratif;
     }
 
-    public void setCategorieEntite(CategorieEntiteAdministratif categorieEntiteAdministratif) {
+    public void setCategorieEntiteAdministratif(CategorieEntiteAdministratif categorieEntiteAdministratif) {
         this.categorieEntiteAdministratif = categorieEntiteAdministratif;
     }
 }

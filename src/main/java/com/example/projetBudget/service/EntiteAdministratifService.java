@@ -1,5 +1,6 @@
 package com.example.projetBudget.service;
 
+import com.example.projetBudget.bean.CategorieEntiteAdministratif;
 import com.example.projetBudget.bean.EntiteAdministratif;
 import com.example.projetBudget.dao.EntiteAdministratifDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,8 @@ import java.util.List;
 public class EntiteAdministratifService {
     @Autowired
     private EntiteAdministratifDao entiteAdministratifDao;
+@Autowired
+private CategorieEntiteAdministratifService categorieEntiteAdministratifService;
 
 
 
@@ -29,8 +32,17 @@ public class EntiteAdministratifService {
         if(findByCode(entiteAdministratif.getCode())!=null){
             return -1;
         }  else {
-            entiteAdministratifDao.save(entiteAdministratif);
-            return 1;
+CategorieEntiteAdministratif categorieEntiteAdministratif= categorieEntiteAdministratifService.findByCode(entiteAdministratif.getCategorieEntiteAdministratif().getCode());
+ entiteAdministratif.setCategorieEntiteAdministratif(categorieEntiteAdministratif);
+ if (entiteAdministratif.getCategorieEntiteAdministratif()==null){
+     return -2;
+ }else {
+
+     entiteAdministratifDao.save(entiteAdministratif);
+
+     return 1;
+ }
+
         }
     }
 
