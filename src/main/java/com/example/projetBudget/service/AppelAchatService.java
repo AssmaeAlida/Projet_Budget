@@ -2,6 +2,8 @@ package com.example.projetBudget.service;
 
 import com.example.projetBudget.bean.AppelAchat;
 import com.example.projetBudget.bean.AppelAchatProduit;
+import com.example.projetBudget.bean.CategorieAppelAchat;
+import com.example.projetBudget.bean.CategorieEntiteAdministratif;
 import com.example.projetBudget.dao.AppelAchatDao;
 import com.example.projetBudget.service.AppelAchatProduitService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +16,10 @@ import java.util.List;
 public class AppelAchatService {
     @Autowired
     private AppelAchatDao appelAchatDao;
+    @Autowired
     private AppelAchatProduitService appelAchatProduitService;
+    @Autowired
+    private CategorieAppelAchatService categorieAppelAchatService;
 
     public AppelAchat findByRef(String ref) {
         return appelAchatDao.findByRef(ref);
@@ -34,16 +39,12 @@ public class AppelAchatService {
     public int  save (AppelAchat appelAchat) {
         if(findByRef(appelAchat.getRef())!=null){
             return -1;
-        } else if (appelAchat.getCategorieAppelAchat().getCode()==null) {
-            return -2;
-
-
-        } else {
+        }  else {
+            CategorieAppelAchat categorieAppelAchat=categorieAppelAchatService.findByCode(appelAchat.getCategorieAppelAchat().getCode());
+            appelAchat.setCategorieAppelAchat(categorieAppelAchat);
             appelAchatDao.save(appelAchat);
 
-            for(AppelAchatProduit a :appelAchat.getAppelAchatProduits()){
-                a.setAppelAchat(appelAchat);
-                appelAchatProduitService.save(a);
+                appelAchatProduitService.save(appelAchat,appelAchat.getAppelAchatProduits());
             }
             return 1;
         }
@@ -52,4 +53,4 @@ public class AppelAchatService {
 
 
 
-}
+

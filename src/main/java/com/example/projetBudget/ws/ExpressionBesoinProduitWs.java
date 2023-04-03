@@ -1,5 +1,6 @@
 package com.example.projetBudget.ws;
 
+import com.example.projetBudget.bean.ExpressionBesoin;
 import com.example.projetBudget.bean.ExpressionBesoinProduit;
 import com.example.projetBudget.service.ExpressionBesoinProduitService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +13,10 @@ import java.util.List;
 public class ExpressionBesoinProduitWs {
     @Autowired
     private ExpressionBesoinProduitService expressionBesoinProduitService;
-    @PostMapping("/")
+    /*@PostMapping("/")
     public int save(@RequestBody ExpressionBesoinProduit expressionBesoinProduit) {
         return expressionBesoinProduitService.save(expressionBesoinProduit);
-    }
+    }*/
     @GetMapping("code/{code}")
     public ExpressionBesoinProduit findByCode(@PathVariable String code) {
         return expressionBesoinProduitService.findByCode(code);
@@ -28,5 +29,9 @@ public class ExpressionBesoinProduitWs {
      @GetMapping("/")
     public List<ExpressionBesoinProduit> findAll() {
         return expressionBesoinProduitService.findAll();
+    }
+    @PostMapping("/")
+    public int save(@RequestBody ExpressionBesoin expressionBesoin, List<ExpressionBesoinProduit> expressionBesoinProduitList) {
+        return expressionBesoinProduitService.save(expressionBesoin, expressionBesoinProduitList);
     }
 }

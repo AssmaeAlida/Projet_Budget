@@ -1,8 +1,10 @@
 package com.example.projetBudget.bean;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import org.w3c.dom.stylesheets.LinkStyle;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -16,6 +18,7 @@ public class AppelAchat {
     private double totale;
     @ManyToOne
     private CategorieAppelAchat categorieAppelAchat;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @OneToMany(mappedBy = "appelAchat")
     private List<AppelAchatProduit> appelAchatProduits;
 

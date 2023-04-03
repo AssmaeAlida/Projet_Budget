@@ -2,6 +2,7 @@ package com.example.projetBudget.service;
 
 import com.example.projetBudget.bean.AppelAchat;
 import com.example.projetBudget.bean.AppelAchatProduit;
+import com.example.projetBudget.bean.Produit;
 import com.example.projetBudget.dao.AppelAchatProduitDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,8 @@ import java.util.List;
 public class AppelAchatProduitService {
     @Autowired
     private AppelAchatProduitDao appelAchatProduitDao;
-    private AppelAchatService appelAchatService;
+    @Autowired
+    private ProduitService produitService;
 
     public List<AppelAchatProduit> findByAppelAchatRef(String ref) {
         return appelAchatProduitDao.findByAppelAchatRef(ref);
@@ -27,19 +29,18 @@ public class AppelAchatProduitService {
         return appelAchatProduitDao.findAll();
     }
 
-    public int save(AppelAchatProduit appelAchatProduit) {
-        if (appelAchatProduit.getRef()!=null){
-            return -1;
-
-        } else if (appelAchatProduit.getProduit().getCode()==null) {
-            return -2;
-        } else {
-            AppelAchat appelAchat=appelAchatService.findByRef(appelAchatProduit.getAppelAchat().getRef());
+    public int save(AppelAchat appelAchat,List<AppelAchatProduit>appelAchatProduits) {
+        for (AppelAchatProduit appelAchatProduit : appelAchatProduits) {
             appelAchatProduit.setAppelAchat(appelAchat);
+            Produit produit = produitService.findByCode(appelAchatProduit.getProduit().getCode());
+            appelAchatProduit.setProduit(produit);
+
             appelAchatProduitDao.save(appelAchatProduit);
-            return 1;
+
         }
+        return 1;
 
     }
+
 }
 

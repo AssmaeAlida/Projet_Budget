@@ -28,8 +28,13 @@ public class AppelAchatProduitWs {
     public List<AppelAchatProduit> findAll() {
         return appelAchatProduitService.findAll();
     }
-   @PostMapping("/")
+ /*  @PostMapping("/")
     public int save(@RequestBody AppelAchatProduit appelAchatProduit) {
         return appelAchatProduitService.save(appelAchatProduit);
+    }*/
+   @PostMapping("/")
+
+    public int save(@RequestBody AppelAchat appelAchat, List<AppelAchatProduit> appelAchatProduits) {
+        return appelAchatProduitService.save(appelAchat, appelAchatProduits);
     }
 }

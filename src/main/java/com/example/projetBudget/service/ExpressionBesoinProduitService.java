@@ -15,14 +15,19 @@ import java.util.List;
 public class ExpressionBesoinProduitService {
     @Autowired
     private ExpressionBesoinProduitDao expressionBesoinProduitDao;
+    @Autowired
+    private ProduitService produitService;
 
-    public int save (ExpressionBesoinProduit expressionBesoinProduit) {
-        if (expressionBesoinProduitDao.findByCode(expressionBesoinProduit.getCode()) != null) {
-             return -1;
-        } else {
+    public int save (ExpressionBesoin expressionBesoin,List<ExpressionBesoinProduit>expressionBesoinProduitList) {
+        for (ExpressionBesoinProduit expressionBesoinProduit:expressionBesoinProduitList){
+            expressionBesoinProduit.setExpressionBesoin(expressionBesoin);
+
+            Produit produit=produitService.findByCode(expressionBesoinProduit.getProduit().getCode());
+            expressionBesoinProduit.setProduit(produit);
             expressionBesoinProduitDao.save(expressionBesoinProduit);
-            return 1;
+
         }
+        return 1;
     }
 
     public ExpressionBesoinProduit findByCode(String code) {
