@@ -1,11 +1,8 @@
 package com.example.projetBudget.service;
 
 import com.example.projetBudget.bean.AppelAchat;
-import com.example.projetBudget.bean.AppelAchatProduit;
 import com.example.projetBudget.bean.CategorieAppelAchat;
-import com.example.projetBudget.bean.CategorieEntiteAdministratif;
 import com.example.projetBudget.dao.AppelAchatDao;
-import com.example.projetBudget.service.AppelAchatProduitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

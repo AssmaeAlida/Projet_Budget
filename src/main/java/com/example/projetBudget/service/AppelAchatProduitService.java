@@ -14,7 +14,7 @@ import java.util.List;
 public class AppelAchatProduitService {
     @Autowired
     private AppelAchatProduitDao appelAchatProduitDao;
-    @Autowired
+    private AppelAchatService appelAchatService;
     private ProduitService produitService;
 
     public List<AppelAchatProduit> findByAppelAchatRef(String ref) {
@@ -30,17 +30,14 @@ public class AppelAchatProduitService {
     }
 
     public int save(AppelAchat appelAchat,List<AppelAchatProduit>appelAchatProduits) {
-        for (AppelAchatProduit appelAchatProduit : appelAchatProduits) {
+        for (AppelAchatProduit appelAchatProduit:appelAchatProduits){
             appelAchatProduit.setAppelAchat(appelAchat);
-            Produit produit = produitService.findByCode(appelAchatProduit.getProduit().getCode());
+
+            Produit produit=produitService.findByCode(appelAchatProduit.getProduit().getCode());
             appelAchatProduit.setProduit(produit);
-
             appelAchatProduitDao.save(appelAchatProduit);
-
         }
-        return 1;
-
-    }
+return 1;}
 
 }
 
