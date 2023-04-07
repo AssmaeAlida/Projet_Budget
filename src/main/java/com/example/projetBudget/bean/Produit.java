@@ -1,6 +1,9 @@
 package com.example.projetBudget.bean;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Produit {
@@ -10,8 +13,17 @@ public class Produit {
 
     private String libelle;
     private String code;
-    @ManyToOne
-    private CategorieProduit categorieProduit;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @OneToMany(mappedBy = "produit")
+    private List<CategorieProduit >categorieProduits;
+
+    public List<CategorieProduit> getCategorieProduits(){
+        return categorieProduits;
+    }
+
+    public void setCategorieProduits(List<CategorieProduit> categorieProduits) {
+        this.categorieProduits = categorieProduits;
+    }
 
     public Long getId() {
         return id;
@@ -37,11 +49,4 @@ public class Produit {
         this.code = code;
     }
 
-    public CategorieProduit getCategorieProduit() {
-        return categorieProduit;
-    }
-
-    public void setCategorieProduit(CategorieProduit categorieProduit) {
-        this.categorieProduit = categorieProduit;
-    }
 }

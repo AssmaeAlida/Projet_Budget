@@ -1,9 +1,8 @@
 package com.example.projetBudget.bean;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.math.BigDecimal;
 
 @Entity
 public class CategorieProduit {
@@ -12,6 +11,17 @@ public class CategorieProduit {
     private Long id ;
     private String libelle;
     private String code;
+    private BigDecimal prix;
+
+    public BigDecimal getPrix() {
+        return prix;
+    }
+    @ManyToOne
+    private Produit produit;
+
+    public void setPrix(BigDecimal prix) {
+        this.prix = prix;
+    }
 
     public Long getId() {
         return id;
@@ -35,6 +45,14 @@ public class CategorieProduit {
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    public Produit getProduit() {
+        return produit;
+    }
+
+    public void setProduit(Produit produit) {
+        this.produit = produit;
     }
 }
 

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -18,22 +19,27 @@ public class ProduitService {
     private CategorieProduitService categorieProduitService;
 
     public int save(Produit produit){
-        CategorieProduit loadedCategorieProduit=categorieProduitService.findByCode(produit.getCategorieProduit().getCode());
-        produit.setCategorieProduit(loadedCategorieProduit);
         if (produitDao.findByCode(produit.getCode())!=null){
             return -1;
             }
         else if(produit.getCode()==null ){
             return -2;
         }
-        else if (produit.getCategorieProduit()==null) {
-            return -3;
-        }
         else {
+            ajoutProduit(produit);
             produitDao.save(produit);
+            categorieProduitService.save(produit,produit.getCategorieProduits());
             return 1;
         }
     }
+
+    private void ajoutProduit(Produit produit) {
+        BigDecimal prix=BigDecimal.ZERO;
+        for(CategorieProduit categorieProduit:produit.getCategorieProduits()){
+            prix=prix.add(categorieProduit.getPrix());
+        }
+    }
+
     public int update(Produit produit){
         if(produitDao.findByCode(produit.getCode())==null){
             return -1;
