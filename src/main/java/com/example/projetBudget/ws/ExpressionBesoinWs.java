@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController @RequestMapping("/api/v1/expressionbesoin")
 public class ExpressionBesoinWs {
     @Autowired
@@ -24,4 +26,8 @@ public class ExpressionBesoinWs {
         return expressionBesoinService.deleteByCode(code);
     }
 
+    @GetMapping("/")
+    public List<ExpressionBesoin> findAll() {
+        return expressionBesoinService.findAll();
+    }
 }
