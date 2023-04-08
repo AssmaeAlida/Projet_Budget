@@ -16,8 +16,7 @@ public class CategorieProduit {
     public BigDecimal getPrix() {
         return prix;
     }
-    @ManyToOne
-    private Produit produit;
+
 
     public void setPrix(BigDecimal prix) {
         this.prix = prix;
@@ -47,12 +46,5 @@ public class CategorieProduit {
         this.code = code;
     }
 
-    public Produit getProduit() {
-        return produit;
-    }
-
-    public void setProduit(Produit produit) {
-        this.produit = produit;
-    }
 }
 

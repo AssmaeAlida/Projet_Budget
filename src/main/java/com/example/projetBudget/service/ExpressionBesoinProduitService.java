@@ -21,7 +21,6 @@ public class ExpressionBesoinProduitService {
     public int save (ExpressionBesoin expressionBesoin,List<ExpressionBesoinProduit>expressionBesoinProduitList) {
         for (ExpressionBesoinProduit expressionBesoinProduit:expressionBesoinProduitList){
             expressionBesoinProduit.setExpressionBesoin(expressionBesoin);
-
             Produit produit=produitService.findByCode(expressionBesoinProduit.getProduit().getCode());
             expressionBesoinProduit.setProduit(produit);
             expressionBesoinProduitDao.save(expressionBesoinProduit);

@@ -16,9 +16,9 @@ public class CategorieProduitService {
 
     public int save(Produit produit,List<CategorieProduit>categorieProduits) {
         for (CategorieProduit categorieProduit:categorieProduits){
-categorieProduit.setPrix(categorieProduit.getPrix());
-categorieProduit.setProduit(produit);
-categorieProduitDao.save(categorieProduit);
+       categorieProduit.setPrix(categorieProduit.getPrix());
+       categorieProduit.setProduit(produit);
+       categorieProduitDao.save(categorieProduit);
         }return 1;
     }
 
@@ -33,4 +33,6 @@ categorieProduitDao.save(categorieProduit);
     public List<CategorieProduit> findAll() {
         return categorieProduitDao.findAll();
     }
+
+
 }

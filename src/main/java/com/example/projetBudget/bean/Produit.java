@@ -13,16 +13,15 @@ public class Produit {
 
     private String libelle;
     private String code;
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @OneToMany(mappedBy = "produit")
-    private List<CategorieProduit >categorieProduits;
+       @ManyToOne
+    private CategorieProduit categorieProduit;
 
-    public List<CategorieProduit> getCategorieProduits(){
-        return categorieProduits;
+    public CategorieProduit getCategorieProduit() {
+        return categorieProduit;
     }
 
-    public void setCategorieProduits(List<CategorieProduit> categorieProduits) {
-        this.categorieProduits = categorieProduits;
+    public void setCategorieProduit(CategorieProduit categorieProduit) {
+        this.categorieProduit = categorieProduit;
     }
 
     public Long getId() {
