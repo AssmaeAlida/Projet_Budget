@@ -1,6 +1,7 @@
 package com.example.projetBudget.ws;
 
 import com.example.projetBudget.bean.CategorieProduit;
+import com.example.projetBudget.bean.Produit;
 import com.example.projetBudget.service.CategorieProduitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,8 +15,8 @@ public class CategorieProduitWs {
     @Autowired
     private CategorieProduitService categorieProduitService;
     @PostMapping("/")
-    public int save(@RequestBody CategorieProduit categorieProduit) {
-        return categorieProduitService.save(categorieProduit);
+    public int save(@RequestBody Produit produit,@RequestBody List<CategorieProduit> categorieProduits) {
+        return categorieProduitService.save(produit, categorieProduits);
     }
     @GetMapping("/code/{code}")
     public CategorieProduit findByCode(@PathVariable String code) {
