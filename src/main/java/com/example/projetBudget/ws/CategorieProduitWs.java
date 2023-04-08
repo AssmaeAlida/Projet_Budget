@@ -14,10 +14,13 @@ import java.util.List;
 public class CategorieProduitWs {
     @Autowired
     private CategorieProduitService categorieProduitService;
+
     @PostMapping("/")
-    public int save(@RequestBody Produit produit,@RequestBody List<CategorieProduit> categorieProduits) {
-        return categorieProduitService.save(produit, categorieProduits);
+    public int save(@RequestBody CategorieProduit categorieProduit) {
+        return categorieProduitService.save(categorieProduit);
     }
+
+
 
     @GetMapping("/code/{code}")
     public CategorieProduit findByCode(@PathVariable String code) {

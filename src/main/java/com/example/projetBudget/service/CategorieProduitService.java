@@ -1,5 +1,6 @@
 package com.example.projetBudget.service;
 
+import com.example.projetBudget.bean.CategorieAppelAchat;
 import com.example.projetBudget.bean.CategorieProduit;
 import com.example.projetBudget.bean.Produit;
 import com.example.projetBudget.dao.CategorieProduitDao;
@@ -13,19 +14,14 @@ import java.util.List;
 public class CategorieProduitService {
     @Autowired
     private CategorieProduitDao categorieProduitDao;
-
-    public int save(Produit produit,List<CategorieProduit>categorieProduits) {
-        for (CategorieProduit categorieProduit:categorieProduits){
-       categorieProduit.setPrix(categorieProduit.getPrix());
-       categorieProduit.setProduit(produit);
-       categorieProduitDao.save(categorieProduit);
-        }return 1;
+    public int save(CategorieProduit categorieProduit) {
+      categorieProduitDao.save(categorieProduit);
+        return 1;
     }
-
     public CategorieProduit findByCode(String code) {
         return categorieProduitDao.findByCode(code);
     }
-   @Transactional
+     @Transactional
     public int deleteByCode(String code) {
         return categorieProduitDao.deleteByCode(code);
     }
@@ -33,6 +29,4 @@ public class CategorieProduitService {
     public List<CategorieProduit> findAll() {
         return categorieProduitDao.findAll();
     }
-
-
 }

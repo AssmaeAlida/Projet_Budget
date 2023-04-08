@@ -1,5 +1,6 @@
 package com.example.projetBudget.service;
 
+import com.example.projetBudget.bean.CategorieAppelAchat;
 import com.example.projetBudget.bean.CategorieProduit;
 import com.example.projetBudget.bean.Produit;
 import com.example.projetBudget.dao.CategorieProduitDao;
@@ -18,27 +19,12 @@ public class ProduitService {
     @Autowired
     private CategorieProduitService categorieProduitService;
 
-    public int save(Produit produit){
-        if (produitDao.findByCode(produit.getCode())!=null){
-            return -1;
-            }
-        else if(produit.getCode()==null ){
-            return -2;
-        }
-        else {
-            ajoutProduit(produit);
-            produitDao.save(produit);
-            categorieProduitService.save(produit,produit.getCategorieProduits());
-            return 1;
-        }
+    public int save(Produit produit) {
+       produitDao.save(produit);
+        return 1;
     }
 
-    private void ajoutProduit(Produit produit) {
-        BigDecimal prix=BigDecimal.ZERO;
-        for(CategorieProduit categorieProduit:produit.getCategorieProduits()){
-            prix=prix.add(categorieProduit.getPrix());
-        }
-    }
+
 
     public int update(Produit produit){
         if(produitDao.findByCode(produit.getCode())==null){
