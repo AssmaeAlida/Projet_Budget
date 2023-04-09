@@ -24,8 +24,7 @@ public class ExpressionBesoinService {
             return -1;
         } else {
             expressionBesoinDao.save(expressionBesoin);
-
-                expressionBesoinProduitService.save(expressionBesoin,expressionBesoin.getExpressionBesoinProduitList());
+            expressionBesoinProduitService.save(expressionBesoin,expressionBesoin.getExpressionBesoinProduitList());
             }
             return 1;
         }

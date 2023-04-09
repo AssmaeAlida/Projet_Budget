@@ -1,5 +1,6 @@
 package com.example.projetBudget.service;
 
+import com.example.projetBudget.bean.CategorieAppelAchat;
 import com.example.projetBudget.bean.CategorieProduit;
 import com.example.projetBudget.bean.Produit;
 import com.example.projetBudget.dao.CategorieProduitDao;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -17,23 +19,13 @@ public class ProduitService {
     @Autowired
     private CategorieProduitService categorieProduitService;
 
-    public int save(Produit produit){
-        CategorieProduit loadedCategorieProduit=categorieProduitService.findByCode(produit.getCategorieProduit().getCode());
-        produit.setCategorieProduit(loadedCategorieProduit);
-        if (produitDao.findByCode(produit.getCode())!=null){
-            return -1;
-            }
-        else if(produit.getCode()==null ){
-            return -2;
-        }
-        else if (produit.getCategorieProduit()==null) {
-            return -3;
-        }
-        else {
-            produitDao.save(produit);
-            return 1;
-        }
+    public int save(Produit produit) {
+       produitDao.save(produit);
+        return 1;
     }
+
+
+
     public int update(Produit produit){
         if(produitDao.findByCode(produit.getCode())==null){
             return -1;
