@@ -22,7 +22,7 @@ public class ExpressionBesoinProduitService {
         for (ExpressionBesoinProduit expressionBesoinProduit:expressionBesoinProduitList){
             expressionBesoinProduit.setExpressionBesoin(expressionBesoin);
 
-            Produit produit=produitService.findByCode(expressionBesoinProduit.getProduit().getCode());
+           Produit produit=produitService.findByCode(expressionBesoinProduit.getProduit().getCode());
             expressionBesoinProduit.setProduit(produit);
             expressionBesoinProduitDao.save(expressionBesoinProduit);
 
