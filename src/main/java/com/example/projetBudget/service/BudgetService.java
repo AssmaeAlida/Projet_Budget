@@ -14,6 +14,7 @@ import java.util.List;
 public class BudgetService {
     @Autowired
     private BudgetDao budgetDao;
+    @Autowired
     private BudgetEntiteAdministratifService budgetEntiteAdministratifService;
 
     public Budget findByAnnee(int annee) {
@@ -33,16 +34,13 @@ public class BudgetService {
         }
         else {
             budgetDao.save(budget);
-            for (BudgetEntiteAdministratif budgetEntiteAdministratif:budget.getBudgetEntiteAdministratifs()){
-                budgetEntiteAdministratif.setBudget(budget);
-
-                budgetEntiteAdministratifService.save(budgetEntiteAdministratif);
+                budgetEntiteAdministratifService.save(budget,budget.getBudgetEntiteAdministratifs());
             }
             return 1;
         }
 
     }
-}
+
 
 
 
