@@ -1,8 +1,6 @@
 package com.example.projetBudget.service;
 
-import com.example.projetBudget.bean.CategorieAppelAchat;
-import com.example.projetBudget.bean.CategorieProduit;
-import com.example.projetBudget.bean.Produit;
+import com.example.projetBudget.bean.*;
 import com.example.projetBudget.dao.CategorieProduitDao;
 import com.example.projetBudget.dao.ProduitDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,18 +18,21 @@ public class ProduitService {
     private CategorieProduitService categorieProduitService;
 
     public int save(Produit produit) {
-       produitDao.save(produit);
-        return 1;
-    }
-
-
-
-    public int update(Produit produit){
-        if(produitDao.findByCode(produit.getCode())==null){
+        if(findByCode(produit.getCode())!=null){
             return -1;
+        }  else {
+            CategorieProduit categorie= categorieProduitService.findByCode(produit.getCategorieProduit().getCode());
+            produit.setCategorieProduit(categorie);
+            if (produit.getCategorieProduit()==null){
+                return -2;
+            }else {
+
+                produitDao.save(produit);
+
+                return 1;
+            }
+
         }
-        else  produitDao.save(produit);
-        return 1;
     }
 
     public Produit findByCode(String code) {

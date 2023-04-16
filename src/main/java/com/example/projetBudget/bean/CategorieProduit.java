@@ -11,16 +11,6 @@ public class CategorieProduit {
     private Long id ;
     private String libelle;
     private String code;
-    private BigDecimal prix;
-
-    public BigDecimal getPrix() {
-        return prix;
-    }
-
-
-    public void setPrix(BigDecimal prix) {
-        this.prix = prix;
-    }
 
     public Long getId() {
         return id;
